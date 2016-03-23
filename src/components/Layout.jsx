@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react'; // Same as doing React.Component
 import Podcast from './Podcast.jsx'
 
-class App extends React.Component {
+class Layout extends React.Component {
 
   constructor(props) {
     super(props);
@@ -22,11 +22,12 @@ class App extends React.Component {
         This is my app!!!! { this.state.counter }
         <br />
         <button onClick={this.handleClick}>Click me!!</button>
-        <Podcast />
+        {this.props.children}
       </div>
     )
   }
   
 }
 
-export default App;
+// export default Layout;
+module.exports = Layout;
