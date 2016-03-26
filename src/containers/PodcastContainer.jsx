@@ -1,8 +1,7 @@
 var React = require('react');
-var podcastHelpers = require('../utils/podcastHelpers.js');
+var Api = require('../utils/api.js');
+var ReactRouter = require('react-router');
 var Podcast = require('../components/Podcast.jsx');
-
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 var PodcastContainer = React.createClass({
@@ -12,33 +11,34 @@ var PodcastContainer = React.createClass({
   getInitialState: function () {
     return {
       podcastInfo: [],
+      playlistTitle: '' ,
     }
   },
   componentDidMount: function(){
     var that = this;
-    podcastHelpers.allPodcasts()
+    this.setState({
+      playlistTitle: this.props.params.playlistTitle
+    });
+    Api.get(`podcasts?playlistid=${this.props.params.playlistId}`)
       .then(function (returnedData) {
         console.log('PODCASTS', returnedData);
         var newPodInfo = [];
-        var playlength = returnedData.data.length
+        var playlength = returnedData.length
         for (var i = 0; i < playlength; i++) {
-           newPodInfo.push(returnedData.data[i]);
+           newPodInfo.push(returnedData[i]);
         };
         that.setState({
           podcastInfo: newPodInfo
         })
-        // that.setState({
-        //   podcastInfo: [returnedData.data[0], returnedData.data[1], returnedData.data[2]]
-        // })
-
-
-
+      }).catch(function() {
+        that.context.router.push('/login')
       })
   },
   render: function () {
     return (
       <Podcast
-        podcastInfo={this.state.podcastInfo} />
+        podcastInfo={this.state.podcastInfo}
+        playlistTitle={this.state.playlistTitle} />
     )
   }
 

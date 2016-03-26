@@ -1,8 +1,7 @@
 var React = require('react');
-var moodHelpers = require('../utils/moodHelpers.js');
+var Api = require('../utils/api.js');
 var Mood = require('../components/Mood.jsx');
 
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 var MoodContainer = React.createClass({
@@ -16,18 +15,44 @@ var MoodContainer = React.createClass({
   },
   componentDidMount: function(){
     var that = this;
-    moodHelpers.allMoods()
+    Api.get('moods')
       .then(function (returnedData) {
         console.log('MOODS', returnedData);
+        var newMoodInfo = [];
+        var moodLength = (returnedData.length)
+        console.log(moodLength)
+        for (var i = 0; i < moodLength; i++) {
+           newMoodInfo.push(returnedData[i]);
+        };
         that.setState({
-          moodInfo: [returnedData.data[0], returnedData.data[1], returnedData.data[2], returnedData.data[3]]
+          moodInfo: newMoodInfo
         })
+      }).catch(function(error) {
+        console.log('error', error)
+        that.context.router.push('/login')
       })
   },
+  // handleClickMood: function (moodid) {
+  //   var that = this;
+  //   console.log(name, password)
+  //   Api.get(`/playlists?moodid=${moodid}`)
+  //     .then(function (response) {
+  //       console.log(response);
+  //       // setLocalStorage(response.token);
+  //       // var user = JSON.parse(localStorage.getItem('user'))
+  //       // // console.log(JSON.parse(localStorage.getItem('user')).token);
+  //       // console.log(user.token);
+  //       that.context.router.push(`/mood/${moodid}`)
+  //     }).catch(function(error) {
+  //     console.log('request failed', error)
+  //     that.context.router.push('/mood')
+  //   })
+  // },
   render: function () {
     return (
       <Mood
         moodInfo={this.state.moodInfo} />
+        //onClickMood={this.handleClickMood} />
     )
   }
 
@@ -37,3 +62,5 @@ var MoodContainer = React.createClass({
 
 //export default Mood;
 module.exports = MoodContainer;
+
+
