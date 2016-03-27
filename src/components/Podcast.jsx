@@ -17,6 +17,7 @@ var Podcast = React.createClass({
               </ListGroup>
             )
           })}
+          <img src={this.props.image} />
         </div>
       </div>
     )

@@ -17,7 +17,6 @@ var MoodContainer = React.createClass({
     var that = this;
     Api.get('moods')
       .then(function (returnedData) {
-        console.log('MOODS', returnedData);
         var newMoodInfo = [];
         var moodLength = (returnedData.length)
         console.log(moodLength)
@@ -27,7 +26,8 @@ var MoodContainer = React.createClass({
         that.setState({
           moodInfo: newMoodInfo
         })
-      }).catch(function(error) {
+      })
+      .catch(function(error) {
         console.log('error', error)
         that.context.router.push('/login')
       })

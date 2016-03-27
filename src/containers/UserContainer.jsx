@@ -19,7 +19,6 @@ var UserContainer = React.createClass({
     var that = this;  
     Api.get('users')
       .then(function (returnedData) {
-        console.log('USER', returnedData);
         that.setState({
           userInfo: [returnedData]
         })

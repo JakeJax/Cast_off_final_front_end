@@ -179,7 +179,11 @@ const User = React.createClass({
 })
 
 
+////////////
 
+ <button className="navbar-toggler pull-xs-right hidden-sm-up" type="button" dataToggle="collapse" dataTarget="#bd-main-nav">
+              &#9776;
+            </button>
 
 
 

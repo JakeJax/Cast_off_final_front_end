@@ -1,8 +1,7 @@
 var React = require('react');
 var Api = require('../utils/api.js');
 var ReactRouter = require('react-router');
-var Playlist = require('../components/Playlist.jsx');
-
+import Playlist from '../components/Playlist.jsx';
 
 var PlaylistContainer = React.createClass({
   contextTypes: {
@@ -22,7 +21,6 @@ var PlaylistContainer = React.createClass({
 
     Api.get(`playlists?moodid=${this.props.params.moodId}`)
       .then(function (returnedData) {
-        console.log('PLAYLIST', returnedData);
         var newPlayInfo = [];
         var playlength = returnedData.playlists.length
         for (var i = 0; i < playlength; i++) {
@@ -31,7 +29,8 @@ var PlaylistContainer = React.createClass({
         that.setState({
           playlistInfo: newPlayInfo,
         })
-      }).catch(function() {
+      }).catch(function(error) {
+        console.log('here', error)
         that.context.router.push('/login')
       })
   },

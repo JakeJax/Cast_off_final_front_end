@@ -1,0 +1,130 @@
+#header {
+  width:100%;
+  border-color: solid black !important;
+}
+
+nav ul {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+nav ul li {
+  margin-top: 15px;
+  border-top: 1px solid #aeaeae;
+  list-style-type: none;
+  height: 50px;
+  padding: 0px 15px 15px 15px;
+  font-size: 12px;
+  font-family: arial;
+  line-height: 20px;
+  display: inline-block;
+}
+
+
+
+
+
+
+/*FOR THE MUSIC PLAYER*/
+#musicPlayer {
+  background-color:#eee;
+  border-radius: 0px;
+  border: 1px solid black;
+  padding:10px;
+  font-family:helvetica, arial, verdana;
+  font-weight:bold;
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#musicPlayer .loader {
+  border:1px solid #fff;
+  height:3px;
+  margin:10px 0px
+}
+#musicPlayer .load-progress {
+  width:0px;
+  background-color:#fff;
+  height:3px;
+}
+#musicPlayer .play-progress {
+  width:0px;
+  background-color:#fff;
+  height:3px;
+}
+
+#musicPlayer .controls {
+  text-align:center;
+}
+
+#musicPlayer .controls a {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  margin:0px 14px;
+  overflow:hidden;
+  border-radius: 5px;
+}
+
+#musicPlayer .controls .prev {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  margin:0px 14px;
+  overflow:hidden;
+  background-image:url('../images/back.png');
+  background-repeat:no-repeat;
+}
+
+#musicPlayer .controls .next {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  margin:0px 14px;
+  overflow:hidden;
+  background-image:url('../images/next.png');
+  background-repeat:no-repeat;
+}
+
+#musicPlayer .controls .pause {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  margin:0px 14px;
+  overflow:hidden;
+  background-image:url('../images/pause.png');
+  background-repeat:no-repeat;
+}
+
+#musicPlayer .controls .play {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  margin:0px 14px;
+  overflow:hidden;
+  background-image:url('../images/play.png');
+  background-repeat:no-repeat;
+}
+
+#musicPlayer .controls a:hover {
+  background-color:#ccc;
+}
+
+#musicPlayer .controls a span {
+  display:none;
+}
+
+#musicPlayer .controls a.prev {
+  background-position:top -60px;
+}
+#musicPlayer .controls a.next {
+  background-position:top -90px;
+}
+#musicPlayer .controls a.play {
+  background-position:top left;
+}
+#musicPlayer .controls a.pause {
+  background-position:top -30px;
+}

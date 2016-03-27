@@ -6,7 +6,6 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 function Podcast (props) {
-  console.log('USER PROPS', props);
   return (<div>
     <h1>PODCAST WORKS</h1>
     <div className='col-sm-8 col-sm-offset-2'>

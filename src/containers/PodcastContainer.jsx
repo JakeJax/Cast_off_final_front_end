@@ -17,11 +17,10 @@ var PodcastContainer = React.createClass({
   componentDidMount: function(){
     var that = this;
     this.setState({
-      playlistTitle: this.props.params.playlistTitle
+      playlistTitle: this.props.playlistTitle
     });
-    Api.get(`podcasts?playlistid=${this.props.params.playlistId}`)
+    Api.get(`podcasts?playlistid=${this.props.playlistId}`)
       .then(function (returnedData) {
-        console.log('PODCASTS', returnedData);
         var newPodInfo = [];
         var playlength = returnedData.length
         for (var i = 0; i < playlength; i++) {
@@ -38,7 +37,8 @@ var PodcastContainer = React.createClass({
     return (
       <Podcast
         podcastInfo={this.state.podcastInfo}
-        playlistTitle={this.state.playlistTitle} />
+        playlistTitle={this.state.playlistTitle}
+        image={this.props.playlistImg} />
     )
   }
 

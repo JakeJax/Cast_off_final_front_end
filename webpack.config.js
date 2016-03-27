@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var config = {
+  context: path.resolve(__dirname, "src"),
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
@@ -13,7 +14,10 @@ var config = {
   devtool: 'source-map',
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { 
+        test: /\.css$/, 
+        loaders: ["style", "css" ]
+      },
       {
         test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
         loaders: ['react-hot','babel'], // The module to load. "babel" is short for "babel-loader"

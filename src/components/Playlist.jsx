@@ -1,34 +1,66 @@
 import React from 'react';
 import { ReactRouter, Link } from 'react-router';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import PodcastContainer from '../containers/PodcastContainer.jsx';
 
-//import { ListGroup, ListGroupItem } from 'react-bootstrap';
+export default class Playlist extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {podcast: null}
+  };
+
+  displayPodcasts = (playlist) => {
+    this.setState({
+      podcast: playlist
+    })
+  };
+
+  backToPlaylists = () => {
+    this.setState({
+      podcast: null
+    })
+  };
 
 
-var Playlist = React.createClass({
-  render: function() {
-    //console.log('MOOD PROPS', props);
+  renderPodcast = () => {
+    return (
+      <div>
+        <button className="btn-primary" onClick={this.backToPlaylists} > All Playlists </button>
+        <PodcastContainer 
+          playlistTitle={this.state.podcast.title} 
+          playlistId={this.state.podcast.id} 
+          playlistImg={this.state.podcast.image} />
+      </div>
+    )
+  };
+
+  renderList = () => {
     return (
       <div>
         <h1>{this.props.moodTitle}</h1>
         <div className='col-sm-8 col-sm-offset-2'>
-        {this.props.playlistInfo.map(function(playlist) {
-          return (
-            <div key={playlist.id} >
-              <Link to={`/playlist/${playlist.id}/${playlist.title}`} params={{ playlistTitle: playlist.title }}>
+          {this.props.playlistInfo.map((playlist) => {
+            return (
+              <div key={playlist.id} onClick={() => this.displayPodcasts(playlist)}>
                 <ListGroupItem>id: {playlist.id}</ListGroupItem>
                 <ListGroupItem>{playlist.title}</ListGroupItem>
                 <ListGroupItem>{playlist.description}</ListGroupItem>
                 <ListGroupItem>{playlist.link}</ListGroupItem>
                 <img src={playlist.image}/>
-              </Link>
-            </div>  
-          )
-        })}
+              </div>  
+            )
+          })}
+        </div>
       </div>
-    </div>)
+    )
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.podcast ? this.renderPodcast() : this.renderList()}
+      </div>)
   }
-});
 
-module.exports = Playlist;
-
+}

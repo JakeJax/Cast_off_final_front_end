@@ -5,10 +5,14 @@ var Link = ReactRouter.Link
 function Home () {
   return (
     <div>
+      <div className="home">
       <Link to='/mood'>
         <button type='button' className='btn btn-lg btn-success'>Get Started</button>
       </Link>
+      </div>
+
     </div>
+
   )
 }
 
