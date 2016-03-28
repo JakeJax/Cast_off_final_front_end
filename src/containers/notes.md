@@ -189,7 +189,19 @@ const User = React.createClass({
 
 
 
-
+////////
+  componentDidMount: function() {
+    if (localStorage.getItem('user')) {
+      var token = JSON.parse(localStorage.getItem('user')).token
+      this.setState({
+        token: token
+      })
+    } else {
+      this.setState({
+        token: null
+      })
+    }
+  },
 
 
 

@@ -32,27 +32,11 @@ var MoodContainer = React.createClass({
         that.context.router.push('/login')
       })
   },
-  // handleClickMood: function (moodid) {
-  //   var that = this;
-  //   console.log(name, password)
-  //   Api.get(`/playlists?moodid=${moodid}`)
-  //     .then(function (response) {
-  //       console.log(response);
-  //       // setLocalStorage(response.token);
-  //       // var user = JSON.parse(localStorage.getItem('user'))
-  //       // // console.log(JSON.parse(localStorage.getItem('user')).token);
-  //       // console.log(user.token);
-  //       that.context.router.push(`/mood/${moodid}`)
-  //     }).catch(function(error) {
-  //     console.log('request failed', error)
-  //     that.context.router.push('/mood')
-  //   })
-  // },
+  
   render: function () {
     return (
       <Mood
         moodInfo={this.state.moodInfo} />
-        //onClickMood={this.handleClickMood} />
     )
   }
 
@@ -60,7 +44,6 @@ var MoodContainer = React.createClass({
 
 
 
-//export default Mood;
 module.exports = MoodContainer;
 
 

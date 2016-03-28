@@ -59,6 +59,13 @@ var sessionHelpers = {
     })
     .then(checkStatus)
     .then(parseJSON)
+  },
+  delete: function(url) {
+    return fetch(`${host}${url}`, {
+      method: 'delete',
+      headers: constructHeaders(),
+    })
+    .then(checkStatus)
   }
 }
 

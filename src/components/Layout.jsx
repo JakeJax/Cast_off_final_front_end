@@ -8,13 +8,19 @@ import Player from './Player.jsx';
 
 class Layout extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  //   this.state = {
-  //     counter: 0
-  //   }
-  // };
+    this.state = {
+      token: localStorage.getItem('user')
+    };
+  };
+
+  setToken = (token) => {
+    this.setState({
+      token: token
+    })
+  };
 
   // handleClick = () => {
   //   this.setState({ counter: this.state.counter + 1 });
@@ -30,6 +36,9 @@ class Layout extends React.Component {
   //     </div>
   //   )
   // }
+
+
+
   render() {
     return(
       <div>
@@ -40,13 +49,16 @@ class Layout extends React.Component {
               CastOff
             </a>
             <nav>
-              <Header />
+              <Header token={this.state.token}
+                setToken={this.setToken}/>
             </nav>
           </div>
         <div className="collapse navbar-toggleable-xs" id="bd-main-nav">
         </div>
         </header>
-          {this.props.children}
+          {React.Children.map(this.props.children, (child) => {
+            return React.cloneElement(child, { setToken: this.setToken });
+          })};
         <br />
         <Player />  
       </div>
