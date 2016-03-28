@@ -1,7 +1,8 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 
-var host = 'http://172.46.0.182:3000/';
+var host = 'http://localhost:3000/'
+//var host = 'http://172.46.0.182:3000/';
 
 function constructHeaders() {
   var headers = {

@@ -1,5 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var jqueryPlugin = new webpack.ProvidePlugin({
+  $: "jquery",
+  jQuery: "jquery",
+  "window.jQuery": "jquery"
+})
 var config = {
   context: path.resolve(__dirname, "src"),
   entry: [
@@ -23,11 +28,14 @@ var config = {
         loaders: ['react-hot','babel'], // The module to load. "babel" is short for "babel-loader"
         exclude: /node_modules/,
         include: path.join(__dirname, 'src')
+      },
+      { test: /vendor\/.+\.(jsx|js)$/,
+        loader: 'imports?jQuery=jquery,$=jquery,this=>window'
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(), jqueryPlugin
   ]
 };
 
