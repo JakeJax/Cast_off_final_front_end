@@ -2,40 +2,90 @@ body {
   font-family: 'Roboto', sans-serif;  
 }
 
+/*Nav Bar*/
+
 #header {
   width:100%;
   border-color: solid black !important;
 }
 
 nav ul {
-  width: 50%;
-  margin: 0 auto;
+  /*width: 500px;*/
+  float: right;
+  /*margin: 0 auto;*/
+  margin-right: 20px;
 }
-
-
 
 nav ul li {
   margin-top: 15px;
+  margin-left: 25px;
   border-top: 1px solid #aeaeae;
   list-style-type: none;
   height: 50px;
-  padding: 0px 15px 15px 15px;
-  font-size: 12px;
+  /*padding: 0px 15px 15px 15px;*/
+  font-size: 14px;
   font-family: arial;
   line-height: 20px;
   display: inline-block;
+  width: 125px;
+  /*margin-left: 10px;*/
+}
+
+nav ul li a {
+  color: #fff;
+}
+
+nav ul li a:hover {
+  color: #337ab7;
 }
 
 
+/*navbar logo*/
+
+.logoContainer {
+  position: relative;
+  height: 75px;
+  width: 75px;
+}
+
+.logoContainer img {
+  height: 75px;
+  width: 75px;
+  position: absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.logoContainer img.top {
+  opacity: 0;
+}
+
+.logoContainer img.top:hover {
+  opacity: 1;
+}
+
 /*for splash page*/
 
+#homeBg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -999999;
+}
 
 .homeContainer {
   width: 100%;
   height: 100%;
   padding-top: 60px;
-  margin-bottom: -20px; 
-  background-image: url(../images/stars.jpg);
+  margin-bottom: -20px;
+  /*background-image: url(../images/stars.jpg);*/
 }
 
 .home {
