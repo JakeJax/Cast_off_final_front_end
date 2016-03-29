@@ -4,6 +4,18 @@ body {
 
 a {
   cursor: pointer;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+
+a:hover {
+  cursor: pointer;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
 }
 
 /*Nav Bar*/
@@ -138,13 +150,16 @@ nav ul li a:hover {
 #musicPlayer {
   background-color:#eee;
   border-radius: 0px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding:10px;
   font-family:helvetica, arial, verdana;
-  font-weight:bold;
+  font-weight:lighter;
   width:100%;
   margin: 0 auto;
   text-align: center;
+  -webkit-box-shadow: 0px 4px 17px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 17px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 17px 5px rgba(0,0,0,0.75);
 }
 #musicPlayer .loader {
   border:1px solid #fff;
@@ -172,7 +187,7 @@ nav ul li a:hover {
   height:50px;
   margin:0px 14px;
   overflow:hidden;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 
 #musicPlayer .controls .prev {
@@ -183,6 +198,19 @@ nav ul li a:hover {
   overflow:hidden;
   background-image:url('../images/back.png');
   background-repeat:no-repeat;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+#musicPlayer .controls .prev:hover {
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
 }
 
 #musicPlayer .controls .next {
@@ -193,6 +221,19 @@ nav ul li a:hover {
   overflow:hidden;
   background-image:url('../images/next.png');
   background-repeat:no-repeat;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+#musicPlayer .controls .next:hover {
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
 }
 
 #musicPlayer .controls .pause {
@@ -203,6 +244,19 @@ nav ul li a:hover {
   overflow:hidden;
   background-image:url('../images/pause.png');
   background-repeat:no-repeat;
+  background-color: #ccc;
+  -webkit-transition: background-color .5s ease-in-out;
+  -moz-transition: background-color .5s ease-in-out;
+  -o-transition: background-color .5s ease-in-out;
+  transition: background-color .5s ease-in-out;
+}
+
+#musicPlayer .controls .pause:hover {
+  background-color:#666;
+  transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -webkit-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
 }
 
 #musicPlayer .controls .play {
@@ -213,10 +267,19 @@ nav ul li a:hover {
   overflow:hidden;
   background-image:url('../images/play.png');
   background-repeat:no-repeat;
+  background-color: #ccc;
+  -webkit-transition: background-color .5s ease-in-out;
+  -moz-transition: background-color .5s ease-in-out;
+  -o-transition: background-color .5s ease-in-out;
+  transition: background-color .5s ease-in-out;
 }
 
-#musicPlayer .controls a:hover {
-  background-color:#ccc;
+#musicPlayer .controls .play:hover {
+  background-color:#666;
+  transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -webkit-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
 }
 
 #musicPlayer .controls a span {
