@@ -310,6 +310,7 @@ nav ul li a:hover {
   border-radius: 0px;
   /*border: 1px solid black;*/
   padding:10px;
+  height: 165px;
   font-family:helvetica, arial, verdana;
   font-weight:lighter;
   width:100%;

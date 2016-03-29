@@ -27,7 +27,7 @@ export default class Player extends React.Component {
 
         <div className='footer' style={styles.footer}>
           <div id="musicPlayer" ref="musicPlayer">
-            <div className="info">Please wait...</div>
+            <div className="info">CastOff</div>
             <div className="loader">
               <div className="load-progress">
                 <div className="play-progress">

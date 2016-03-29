@@ -14,10 +14,20 @@ function User (props) {
         <ListGroup key={props.userInfo.id} >
           <ListGroupItem>{props.userInfo.name}</ListGroupItem>
         </ListGroup>
-        <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
-      </div>
     </div>
-  )
+    <div>
+      {props.likesInfo.map(function(like) {
+          return (
+            <div key={like.id} >
+                <ListGroupItem>{like.title}</ListGroupItem>
+                <ListGroupItem>{like.url}</ListGroupItem>
+                <img src={like.image}/>
+            </div> 
+          )
+        })}
+    </div>
+    <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
+  </div>)
 }
 
 module.exports = User;
