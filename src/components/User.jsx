@@ -13,8 +13,19 @@ function User (props) {
           <img src={props.userInfo.image}/>
           <ListGroupItem>{props.userInfo.name}</ListGroupItem>
         </ListGroup>
-
     </div>
+    <div>
+      {props.likesInfo.map(function(like) {
+          return (
+            <div key={like.id} >
+                <ListGroupItem>{like.title}</ListGroupItem>
+                <ListGroupItem>{like.url}</ListGroupItem>
+                <img src={like.image}/>
+            </div> 
+          )
+        })}
+    </div>
+
   </div>)
 }
 

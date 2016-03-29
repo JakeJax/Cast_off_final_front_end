@@ -61,7 +61,8 @@ var PodcastContainer = React.createClass({
           podcastInfo={this.state.podcastInfo}
           playlistTitle={this.state.playlistTitle}
           playlistLikes={this.state.playlistLikes}
-          image={this.props.playlistImg} />
+          image={this.props.playlistImg}
+          playlistUrls={this.state.playlistUrls} />
 
       </div>
     )

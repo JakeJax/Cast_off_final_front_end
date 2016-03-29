@@ -11,6 +11,7 @@ var UserContainer = React.createClass({
   getInitialState: function () {
     return {
       userInfo: [],
+      likesInfo: []
     }
   },
   componentDidMount: function(){
@@ -21,9 +22,23 @@ var UserContainer = React.createClass({
         that.setState({
           userInfo: returnedData
         })
-        // that.setState({
-        //   podcastInfo: [returnedData.data[0], returnedData.data[1], returnedData.data[2]]
-        // })
+    Api.get('likes')
+      .then(function (returnedData) {
+        console.log(returnedData)
+        var newLikesInfo = [];
+        var likesLength = (returnedData.likes.length)
+        console.log(likesLength)
+        for (var i = 0; i < likesLength; i++) {
+          newLikesInfo.push(returnedData.likes[i]);
+        };
+        for (var i = 0; i < likesLength; i++) {
+          newLikesInfo[i].image = returnedData.likeImages[i]
+        };
+        that.setState({
+          likesInfo: newLikesInfo
+        })
+      })
+
 
 
 
@@ -32,7 +47,8 @@ var UserContainer = React.createClass({
   render: function () {
     return (
       <User
-        userInfo={this.state.userInfo} />
+        userInfo={this.state.userInfo} 
+        likesInfo={this.state.likesInfo} />
     )
   }
 

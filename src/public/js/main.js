@@ -7,20 +7,37 @@
 
 $(document).ready(function() {
 
-  var playlist = [
-    {
-      title: "podcast1",
-      url: "blah.mp3"
-    }
-  ]
+  var playlist = []
 
   var aud = $('#musicPlayer .aud').get(0);
   aud.pos = -1;
+
+  window.playSrc = function(url, title){
+
+  }
 
   window.setPlayerSrc = function(url, title) {
     aud.setAttribute('src', url);
     $('#musicPlayer .info').html(title);
   }
+
+  window.addPlayerSrc = function(new_url, new_title) {
+    new_pod = { title: new_title, url: new_url }
+    playlist.push(new_pod)
+    setPlayerSrc(playlist[0].url, playlist[0].title)
+  }
+
+  window.playAllSrc = function(new_playlist) {
+    playlist = new_playlist
+    setPlayerSrc(playlist[0].url, playlist[0].title)
+  }
+
+  $('.playAll').bind('click', function(e) {
+    e.preventDefault();
+    aud.load();
+    aud.play();
+  })
+
 
   $('#musicPlayer .play').bind('click', function(e) {
     e.preventDefault();
@@ -41,7 +58,9 @@ $(document).ready(function() {
     aud.pause();
     aud.pos++;
     if (aud.pos == playlist.length) aud.pos = 0;
-      setPlayerSrc(playlist[aud.pos].url, playlist[aud.pos].title)
+
+    setPlayerSrc(playlist[aud.pos].url, playlist[aud.pos].title)
+    // aud.play();
     aud.load();
   });
 
