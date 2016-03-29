@@ -7,6 +7,13 @@
 
 $(document).ready(function() {
 
+  var playlist = [
+    {
+      title: "podcast1",
+      url: "blah.mp3"
+    }
+  ]
+
   var aud = $('#musicPlayer .aud').get(0);
   aud.pos = -1;
 

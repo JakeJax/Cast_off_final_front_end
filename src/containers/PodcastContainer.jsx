@@ -14,6 +14,7 @@ var PodcastContainer = React.createClass({
       podcastInfo: [],
       playlistTitle: '' ,
       playlistUrls: [],
+      playlistLikes: [],
     }
   },
   componentDidMount: function(){
@@ -23,6 +24,7 @@ var PodcastContainer = React.createClass({
     });
     Api.get(`podcasts?playlistid=${this.props.playlistId}`)
       .then(function (returnedData) {
+        console.log(returnedData);
         var newPodInfo = [];
         var newPlaylistUrls = [];
         var playlength = returnedData.length
@@ -40,6 +42,17 @@ var PodcastContainer = React.createClass({
       }).catch(function() {
         that.context.router.push('/login')
       })
+    Api.get(`likes?playlistid=${this.props.playlistId}`).then(function (returnedData) {
+      console.log(returnedData);
+      var newLikeList = returnedData.map( function(like){
+        return like.id;
+      });
+      that.setState({
+          playlistLikes: newLikeList
+        })
+    }).catch(function() {
+        that.context.router.push('/login')
+      })
   },
   render: function () {
     return (
@@ -47,6 +60,7 @@ var PodcastContainer = React.createClass({
         <Podcast
           podcastInfo={this.state.podcastInfo}
           playlistTitle={this.state.playlistTitle}
+          playlistLikes={this.state.playlistLikes}
           image={this.props.playlistImg} />
 
       </div>

@@ -43,11 +43,10 @@ export default class Playlist extends React.Component {
           {this.props.playlistInfo.map((playlist) => {
             return (
               <div key={playlist.id} onClick={() => this.displayPodcasts(playlist)}>
-                <ListGroupItem>id: {playlist.id}</ListGroupItem>
+                <img src={playlist.image}/>
                 <ListGroupItem>{playlist.title}</ListGroupItem>
                 <ListGroupItem>{playlist.description}</ListGroupItem>
                 <ListGroupItem>{playlist.link}</ListGroupItem>
-                <img src={playlist.image}/>
               </div>  
             )
           })}
@@ -64,3 +63,8 @@ export default class Playlist extends React.Component {
   }
 
 }
+
+
+
+
+
