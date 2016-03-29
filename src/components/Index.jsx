@@ -25,10 +25,10 @@ function Home () {
           <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
         </div>
         <div>
-          <img src="../src/public/images/roadrocks.jpg" alt="" id="homeBg" />
+          <img src="../src/public/images/northernlights.jpg" alt="" id="homeBg" />
         </div>
         <div>
-          <img src="../src/public/images/frostytips.jpg" alt="" id="homeBg" />
+          <img src="../src/public/images/gasformation.jpg" alt="" id="homeBg" />
         </div>
       </div>
     </div>
