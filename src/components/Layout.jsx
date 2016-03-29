@@ -46,7 +46,7 @@ class Layout extends React.Component {
         <header className="navbar navbar-light navbar-static-top bd-navbar" roll="banner">
           <div className="clearfix">           
             <a className="navbar-brand hidden-sm-up" href="/">  
-              <div classsName="logoContainer">        
+              <div className="logoContainer">        
                 <img className="bottom" src="../src/public/images/castOffLogoOutline.png" />
                 <img className="top" src="../src/public/images/castOffLogo.png" />
               </div>
@@ -61,7 +61,7 @@ class Layout extends React.Component {
         </header>
           {React.Children.map(this.props.children, (child) => {
             return React.cloneElement(child, { setToken: this.setToken });
-          })};
+          })}
         <br />
         <Player />  
       </div>

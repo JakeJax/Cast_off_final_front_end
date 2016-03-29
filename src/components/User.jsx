@@ -5,21 +5,17 @@ var Link = ReactRouter.Link;
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
-function Podcast (props) {
+function User (props) {
   return (<div>
-    <h1>PODCAST WORKS</h1>
+    <h1>Hello {props.userInfo.name} </h1>
     <div className='col-sm-8 col-sm-offset-2'>
-      {props.podcastInfo.map(function(podcast) {
-        return (
-          <ListGroup key={podcast.id} >
-            <ListGroupItem>id: {podcast.id}</ListGroupItem>
-            <ListGroupItem>{podcast.title}</ListGroupItem>
-            <ListGroupItem>{podcast.url}</ListGroupItem>
-          </ListGroup>
-        )
-      })}
+        <ListGroup key={props.userInfo.id} >
+          <img src={props.userInfo.image}/>
+          <ListGroupItem>{props.userInfo.name}</ListGroupItem>
+        </ListGroup>
+
     </div>
   </div>)
 }
 
-module.exports = Podcast;
+module.exports = User;

@@ -3,8 +3,6 @@ var Api = require('../utils/api.js');
 var userHelpers = require('../utils/userHelpers.js');
 var User = require('../components/User.jsx');
 
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-
 
 var UserContainer = React.createClass({
   contextTypes: {
@@ -17,10 +15,11 @@ var UserContainer = React.createClass({
   },
   componentDidMount: function(){
     var that = this;  
-    Api.get('users')
+    Api.get('user')
       .then(function (returnedData) {
+        console.log(returnedData)
         that.setState({
-          userInfo: [returnedData]
+          userInfo: returnedData
         })
         // that.setState({
         //   podcastInfo: [returnedData.data[0], returnedData.data[1], returnedData.data[2]]

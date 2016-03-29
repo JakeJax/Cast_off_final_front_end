@@ -1,14 +1,5 @@
 
-var playlist = [
-{ 
-  title : "Episode 84 - Willy Russell",
-  url : "http://traffic.libsyn.com/sodajerker/episode_84_willy_russell.mp3"
-},
-{
-  title: "Episode 83 - Scroobius Pip",
-  url: "http://traffic.libsyn.com/sodajerker/episode_83_scroobius_pip.mp3"
-}
-];
+
 
 
 
