@@ -1,5 +1,21 @@
 body {  
-  font-family: 'Roboto', sans-serif;  
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+.contentContainer {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding-bottom: 150px;
+}
+
+.contentContainer h1 {
+  text-align: center;
 }
 
 a {
@@ -11,6 +27,7 @@ a {
 }
 
 a:hover {
+  text-decoration: none;
   cursor: pointer;
   -webkit-transition: color .5s ease-in-out;
   -moz-transition: color .5s ease-in-out;
@@ -18,7 +35,7 @@ a:hover {
   transition: color .5s ease-in-out;
 }
 
-/*Nav Bar*/
+/*-------------- NAV BAR ---------------*/
 
 #header {
   width:100%;
@@ -56,19 +73,34 @@ nav ul li a:hover {
 }
 
 
-/*navbar logo*/
+/*-------- NAVBAR LOGO --------*/
 
 .wordmarkContainer {
   position: absolute;
   font-size: 25px;
+  font-weight: lighter;
   height: 40px;
   width: 125px;
   background: rgba(0, 0, 0, 0.7); 
+  border-radius: 0 5px 5px 0;
   background-opacity: .7;
   margin-top: 200px;
   left: 0;
   padding-top: 10px;
   text-align: center;
+  color: #fff;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+
+.wordmarkContainer:hover {
+  color: 337ab7;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
 }
 
 .logoContainer {
@@ -96,7 +128,7 @@ nav ul li a:hover {
   opacity: 1;
 }
 
-/*for splash page*/
+/*---------- SPLASH PAGE ----------*/
 
 #homeBg {
   position: fixed; 
@@ -146,7 +178,133 @@ nav ul li a:hover {
 }
 
 
-/*FOR THE MUSIC PLAYER*/
+/*Mood Page*/
+#moodContainer {
+  height: 100%;
+  margin-bottom: 150px;
+}
+
+
+.footerSpacer {
+  height: 150px;
+  width: 100%;
+  bottom: 0;
+}
+
+
+/*---------- PROFILE PAGE ----------*/
+
+.profileContainer {
+  width: 100%;
+}
+
+.profileContent {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.profPicHolder {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  display: block;
+}
+
+
+/*--------- MOOD PAGE ----------*/
+
+.moodPicContainer{
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.moodPicContainer .mood {
+  float: left;
+  /*border: 1px solid gray;*/
+  margin: 20px;
+  padding: 6px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2); 
+  -webkit-box-shadow: 5px 5px 40px 5px #0D0D0D;
+  box-shadow: 0px 0px 49px -1px rgba(255,255,255,255.75);
+  -webkit-transition: margin .5s ease-in-out;
+  -moz-transition: margin .5s ease-in-out;
+  -o-transition: margin .5s ease-in-out;
+  transition: margin .5s ease-in-out;
+}
+.moodPicContainer .mood img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.name {
+  font-weight: lighter;
+  text-align: center;
+  margin-top: -20px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.moodPicContainer .mood a {
+  text-align: center;
+  color: #fff;
+}
+
+.moodPicContainer .mood:hover {
+  margin-top: 10px;
+  -webkit-transition: margin-top .5s ease-in-out;
+  -moz-transition: margin-top .5s ease-in-out;
+  -o-transition: margin-top .5s ease-in-out;
+  transition: margin-top .5s ease-in-out;
+}
+
+.moodPicContainer .mood a:hover {
+  color: #337ab7;
+}
+
+
+/*--------- PLAYLIST PAGE  ---------*/
+
+.playlistContainer {
+  width: 700px;
+  margin: 0 auto 50px auto;
+  border-bottom: dotted #fff 1px;
+}
+
+.playlistContainer h1 {
+  text-align: center;
+}
+
+.playlistContainer a {
+  color: #fff;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+
+.playlistContainer a:hover {
+  color: #337ab7;
+  -webkit-transition: color .5s ease-in-out;
+  -moz-transition: color .5s ease-in-out;
+  -o-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+
+.playlistContainer img {
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+}
+
+
+/*--------- FOR THE MUSIC PLAYER ----------*/
+
 #musicPlayer {
   background-color:#eee;
   border-radius: 0px;

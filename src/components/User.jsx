@@ -6,16 +6,18 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 function User (props) {
-  return (<div>
-    <h1>Hello {props.userInfo.name} </h1>
-    <div className='col-sm-8 col-sm-offset-2'>
+  return (
+    <div className="profileContainer">
+      <div className='profileContent'>
+        <h2>Hello {props.userInfo.name} </h2>
+        <img src={props.userInfo.image} className="profPicHolder"/>
         <ListGroup key={props.userInfo.id} >
-          <img src={props.userInfo.image}/>
           <ListGroupItem>{props.userInfo.name}</ListGroupItem>
         </ListGroup>
-
+        <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
+      </div>
     </div>
-  </div>)
+  )
 }
 
 module.exports = User;

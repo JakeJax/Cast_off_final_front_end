@@ -10,20 +10,24 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 var Mood = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="contentContainer">
         <h1>Moods</h1>
-        <div className='col-sm-8 col-sm-offset-2'>
+        <div className='moodPicContainer'>
         {this.props.moodInfo.map(function(mood) {
           return (
-            <div key={mood.id} >
-              <Link to={`/${mood.id}/${mood.title}`} params={{ moodTitle: mood.title }}>
-                <ListGroupItem ref="moodId">id: {mood.id}</ListGroupItem>
-                <ListGroupItem>{mood.title}</ListGroupItem>
-                <img src={mood.image}/>
-              </Link>
-            </div> 
+            <div className="mood">
+              <div key={mood.id} >
+                <Link to={`/${mood.id}/${mood.title}`} params={{ moodTitle: mood.title }}>
+                  <img src={mood.image}/>
+                   <div className="name">
+                    <h3>{mood.title}</h3>
+                  </div>
+                </Link>
+              </div> 
+            </div>
           )
         })}
+        <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
       </div>
     </div>)
   }
