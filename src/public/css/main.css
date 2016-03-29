@@ -2,6 +2,10 @@ body {
   font-family: 'Roboto', sans-serif;  
 }
 
+a {
+  cursor: pointer;
+}
+
 /*Nav Bar*/
 
 #header {
@@ -41,6 +45,19 @@ nav ul li a:hover {
 
 
 /*navbar logo*/
+
+.wordmarkContainer {
+  position: absolute;
+  font-size: 25px;
+  height: 40px;
+  width: 125px;
+  background: rgba(0, 0, 0, 0.7); 
+  background-opacity: .7;
+  margin-top: 200px;
+  left: 0;
+  padding-top: 10px;
+  text-align: center;
+}
 
 .logoContainer {
   position: relative;
@@ -95,6 +112,8 @@ nav ul li a:hover {
   height: 300px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .home h1 {

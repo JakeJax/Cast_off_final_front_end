@@ -42,6 +42,11 @@ class Layout extends React.Component {
                 <img className="top" src="../src/public/images/castOffLogo.png" />
               </div>
             </a>
+            <a className="navbar-brand hidden-sm-up" href="/">  
+              <div className="wordmarkContainer">        
+                CastOff
+              </div>
+            </a>
             <nav>
               <Header />
             </nav>
