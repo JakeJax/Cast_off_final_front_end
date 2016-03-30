@@ -58,6 +58,28 @@ class Layout extends React.Component {
                 CastOff
               </div>
             </a>
+            <div id="sliderContainer">
+              <div id="hidden">
+                <ul>
+                  <li>ssdcdsc</li>
+                  <li>cscdcdssdcsd</li>
+                  <li>sdcdscsdds</li>
+                  <li>cscscdds</li>
+                  <li>cdsdcsdcds</li>
+                  <li>sdcsdcdsdsc</li><li>ssdcdsc</li>
+                  <li>cscdcdssdcsd</li>
+                  <li>sdcdscsdds</li>
+                  <li>cscscdds</li>
+                  <li>cdsdcsdcds</li>
+                  <li>sdcsdcdsdsc</li>
+                </ul>           
+              </div>
+              <div id="shown">
+                <div id="sliderTitle">
+                  <h4>My Playlist</h4>
+                </div>
+              </div>
+            </div>
             <nav>
               <Header token={this.state.token}
                 setToken={this.setToken}/>

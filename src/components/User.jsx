@@ -26,7 +26,6 @@ function User (props) {
                   </div>  
                   <div className="title">
                       <p>{like.title}</p>
-                      <a href={like.url} target="blank">more info</a>
                     </div>
                 </div>
                 
