@@ -97,7 +97,6 @@ $(document).ready(function() {
   });
 
 
-  $('#musicPlayer .info').html(playlist[0].title);
 
   $('.loader').bind('click', function (e) {
     var $div = $(e.target);

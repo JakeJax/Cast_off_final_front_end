@@ -42,11 +42,14 @@ var SessionContainer = React.createClass({
     Api.delete('sessions', {token: this.state.token })
       .then(function (response){
         localStorage.removeItem('user');
+        debugger
+        localStorage.removeItem('playlist');
         that.context.router.push('/login');
       }).catch(function(error) {
         console.log('request failed', error)
         that.context.router.push('/login')
       })
+
   },
 
   renderHeader: function(token) {

@@ -48,7 +48,7 @@ var UserContainer = React.createClass({
     return (
       <User
         userInfo={this.state.userInfo} 
-        likesInfo={this.state.likesInfo} />
+        likesInfo={this.state.likesInfo}   />
     )
   }
 

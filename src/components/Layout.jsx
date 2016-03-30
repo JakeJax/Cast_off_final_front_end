@@ -3,16 +3,25 @@ import { Component } from 'react'; // Same as doing React.Component
 import Header from './Header.jsx'
 import styles from '../styles';
 import Player from './Player.jsx';
+import CustomPlaylist from './CustomPlaylist.jsx';
 // import publicMainStyle from '../public/css/main.css';
 
 
+
+
 class Layout extends React.Component {
+
+  getPlaylist = () => {
+    const listJson = localStorage.getItem('playlist');
+    return listJson ? JSON.parse(listJson) : [];
+  }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      token: localStorage.getItem('user')
+      token: localStorage.getItem('user'),
+      cusPlaylist: this.getPlaylist(),
     };
   };
 
@@ -21,6 +30,14 @@ class Layout extends React.Component {
       token: token
     })
   };
+
+  setPlaylist = (playlist) => {
+    this.setState({
+      cusPlaylist: playlist
+    })
+  }
+
+
 
 
 
@@ -58,28 +75,8 @@ class Layout extends React.Component {
                 CastOff
               </div>
             </a>
-            <div id="sliderContainer">
-              <div id="hidden">
-                <ul>
-                  <li>ssdcdsc</li>
-                  <li>cscdcdssdcsd</li>
-                  <li>sdcdscsdds</li>
-                  <li>cscscdds</li>
-                  <li>cdsdcsdcds</li>
-                  <li>sdcsdcdsdsc</li><li>ssdcdsc</li>
-                  <li>cscdcdssdcsd</li>
-                  <li>sdcdscsdds</li>
-                  <li>cscscdds</li>
-                  <li>cdsdcsdcds</li>
-                  <li>sdcsdcdsdsc</li>
-                </ul>           
-              </div>
-              <div id="shown">
-                <div id="sliderTitle">
-                  <h4>My Playlist</h4>
-                </div>
-              </div>
-            </div>
+            <CustomPlaylist cusPlaylist={this.state.cusPlaylist} 
+              setPlaylist={this.setPlaylist} />
             <nav>
               <Header token={this.state.token}
                 setToken={this.setToken}/>
@@ -89,7 +86,7 @@ class Layout extends React.Component {
         </div>
         </header>
           {React.Children.map(this.props.children, (child) => {
-            return React.cloneElement(child, { setToken: this.setToken });
+            return React.cloneElement(child, { setToken: this.setToken, setPlaylist: this.setPlaylist });
           })}
         <br />
         <Player />  

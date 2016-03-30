@@ -39,6 +39,7 @@ var Header = React.createClass({
     Api.delete('sessions')
       .then(function (response){
         localStorage.removeItem('user');
+        localStorage.removeItem('playlist');
         that.context.router.push('/login');
         that.props.setToken(null);
       }).catch(function(error) {

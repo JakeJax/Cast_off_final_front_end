@@ -37,6 +37,7 @@ var PlaylistContainer = React.createClass({
   render: function () {
     return (
       <Playlist
+        setPlaylist={this.props.setPlaylist}
         playlistInfo={this.state.playlistInfo}
         moodTitle={this.state.moodTitle} />
     )
