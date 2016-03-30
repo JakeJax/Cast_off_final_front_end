@@ -38,6 +38,7 @@ var Podcast = React.createClass({
     localStorage.setItem('playlist', JSON.stringify(playlist));
     this.setState({ customPlaylist: playlist });
     this.props.setPlaylist(playlist);
+    window.updatePlaylist(playlist);
   },
 
   removeFromPlaylist: function(podcast) {
@@ -46,6 +47,7 @@ var Podcast = React.createClass({
     localStorage.setItem('playlist', JSON.stringify(newPl));
     this.setState({ customPlaylist: newPl });
     this.props.setPlaylist(newPl);
+    window.updatePlaylist(newPl);
 
   },
 

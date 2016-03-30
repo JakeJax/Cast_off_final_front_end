@@ -79,7 +79,9 @@ class Layout extends React.Component {
               setPlaylist={this.setPlaylist} />
             <nav>
               <Header token={this.state.token}
-                setToken={this.setToken}/>
+                setToken={this.setToken}
+                cusPlaylist={this.state.cusPlaylist} 
+                setPlaylist={this.setPlaylist} />
             </nav>
           </div>
         <div className="collapse navbar-toggleable-xs" id="bd-main-nav">

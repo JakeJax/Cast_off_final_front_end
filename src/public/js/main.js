@@ -12,8 +12,8 @@ $(document).ready(function() {
   var aud = $('#musicPlayer .aud').get(0);
   aud.pos = -1;
 
-  window.playSrc = function(url, title){
-
+  window.updatePlaylist = function(new_playlist){
+    playlist = new_playlist;
   }
 
   window.setPlayerSrc = function(url, title) {

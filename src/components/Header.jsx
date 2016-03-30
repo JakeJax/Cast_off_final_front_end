@@ -40,6 +40,7 @@ var Header = React.createClass({
       .then(function (response){
         localStorage.removeItem('user');
         localStorage.removeItem('playlist');
+        that.props.setPlaylist([]);
         that.context.router.push('/login');
         that.props.setToken(null);
       }).catch(function(error) {
