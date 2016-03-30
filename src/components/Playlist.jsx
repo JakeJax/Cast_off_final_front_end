@@ -48,7 +48,7 @@ export default class Playlist extends React.Component {
                   <img src={playlist.image}/>
                   <h2>{playlist.title}</h2>
                   <p>{playlist.description}</p></a>
-                  <p><a href={playlist.link} target="blank">more info</a></p>
+                  <p>Visit their <strong><a href={playlist.link} target="blank">website</a></strong> for more information.</p>
                 </div>  
               </div>
             )
