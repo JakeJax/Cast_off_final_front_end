@@ -1,17 +1,27 @@
 body {  
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
+  color: #fff;
+  height: 80%;
 }
 
 h1, h2 {
   color: #fff;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 5px;
 }
 
 .contentContainer {
   height: 100%;
   width: 100%;
   overflow: auto;
+  padding-top: 100px;
   padding-bottom: 150px;
+  position: absolute;
+  top: 0;
 }
 
 .contentContainer h1 {
@@ -50,9 +60,9 @@ nav ul {
 }
 
 nav ul li {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 25px;
-  border-top: 1px solid #aeaeae;
+  border-top: 1px solid #fff;
   list-style-type: none;
   height: 50px;
   /*padding: 0px 15px 15px 15px;*/
@@ -60,7 +70,7 @@ nav ul li {
   font-family: arial;
   line-height: 20px;
   display: inline-block;
-  width: 125px;
+  width: 150px;
   /*margin-left: 10px;*/
 }
 
@@ -69,7 +79,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #337ab7;
+  color: #0062FF;
 }
 
 
@@ -96,7 +106,7 @@ nav ul li a:hover {
 }
 
 .wordmarkContainer:hover {
-  color: 337ab7;
+  color:#0062FF;
   -webkit-transition: color .5s ease-in-out;
   -moz-transition: color .5s ease-in-out;
   -o-transition: color .5s ease-in-out;
@@ -198,8 +208,12 @@ nav ul li a:hover {
   width: 100%;
 }
 
+.profileContainer h2 {
+  text-align: center;
+}
+
 .profileContent {
-  width: 75%;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -209,6 +223,57 @@ nav ul li a:hover {
   margin: 0 auto 20px auto;
   border-radius: 50%;
   display: block;
+  box-shadow: 0px 0px 49px -1px rgba(0,0,0,0.8);
+}
+
+.likePicContainer{
+  width: 775px;
+  margin: 0 auto;
+}
+
+.likePicContainer .like {
+  float: left;
+  /*border: 1px solid gray;*/
+  margin: 20px;
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2); 
+  -webkit-box-shadow: 5px 5px 40px 5px #0D0D0D;
+  box-shadow: 0px 0px 49px -1px rgba(0,0,0,0.8);
+  -webkit-transition: margin .5s ease-in-out;
+  -moz-transition: margin .5s ease-in-out;
+  -o-transition: margin .5s ease-in-out;
+  transition: margin .5s ease-in-out;
+  overflow: auto;
+  text-align: center;
+  display: inline-block;
+}
+.likePicContainer .like img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: lighter;
+  text-align: center;
+  width: 150px;
+  margin-top: -20px;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: auto;
+}
+
+.likePicContainer .like a {
+  text-align: center;
+  color: #fff;
+}
+
+.likePicContainer .like a:hover {
+  color: #0062FF;
 }
 
 
@@ -236,8 +301,8 @@ nav ul li a:hover {
   transition: margin .5s ease-in-out;
 }
 .moodPicContainer .mood img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   display: block;
   margin: 0 auto;
 }
@@ -247,7 +312,6 @@ nav ul li a:hover {
   text-align: center;
   margin-top: -20px;
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.6);
 }
 
 .moodPicContainer .mood a {
@@ -264,7 +328,7 @@ nav ul li a:hover {
 }
 
 .moodPicContainer .mood a:hover {
-  color: #337ab7;
+  color: #0062FF;
 }
 
 
@@ -289,7 +353,7 @@ nav ul li a:hover {
 }
 
 .playlistContainer a:hover {
-  color: #337ab7;
+  color: #0062FF;
   -webkit-transition: color .5s ease-in-out;
   -moz-transition: color .5s ease-in-out;
   -o-transition: color .5s ease-in-out;
@@ -299,13 +363,35 @@ nav ul li a:hover {
 .playlistContainer img {
   display: block;
   margin: 0 auto 20px auto;
-  border-radius: 50%;
+  border-radius: 20px;
+}
+
+/*----------- INDIVIDUAL PLAYLIST BY PODCAST TITLE -----------*/
+
+.indPlaylistHolder {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.indPlaylistHolder img {
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto 30px auto;
+}
+
+.indPlaylist {
+  background: rgba(0,0,0,.3);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 5px;
 }
 
 
 /*--------- FOR THE MUSIC PLAYER ----------*/
 
 #musicPlayer {
+  color: #666;
   background-color:#eee;
   border-radius: 0px;
   /*border: 1px solid black;*/

@@ -61,37 +61,33 @@ var Podcast = React.createClass({
   likeButton: function(id) {
     var that = this;
     return(
-      <button className="btn-primary" onClick={function() {that.like(id)}} >Add to Favourites</button>
+      <button className="btn btn- btn-primary" onClick={function() {that.like(id)}} >Add to Favourites</button>
     )
   },
 
   unlikeButton: function(id) {
     var that = this;
     return(
-      <button className="btn-primary" onClick={function() {that.unlike(id)}} >Remove from Favourites</button>
+      <button className="btn btn- btn-primary" onClick={function() {that.unlike(id)}} >Remove from Favourites</button>
     )
   },
 
   renderPodcasts: function() {
     var that = this;
     return (
-      <div>
+      <div className="contentContainer">
         <h1>{this.props.playlistTitle}</h1>
-        <div className='col-sm-8 col-sm-offset-2'>
+        <div className='indPlaylistHolder'>
         <img src={this.props.image} />
-        <button className="btn-primary playAll" onClick={function() {that.playAll(that.props.playlistUrls)}} >Play All</button>
+        <button className="btn btn- btn-primary playAll" onClick={function() {that.playAll(that.props.playlistUrls)}} >Play All</button>
           {this.props.podcastInfo.map(function(podcast) {
             return (
-              <div>
-                <button className="btn-primary" onClick={function() { that.play(podcast) }} >Play</button>
+              <div className="indPlaylist">
+                <button className="btn btn- btn-primary" onClick={function() { that.play(podcast) }} >Play</button>
                 {that.userLiked(podcast.id) ? that.unlikeButton(podcast.id) : that.likeButton(podcast.id) }
-                <button className="btn-primary" onClick={function() {that.addToPlaylist(podcast)}} >Add to Playlist</button>
-                <ListGroup key={podcast.id} >
-                  <ListGroupItem>id: {podcast.id}</ListGroupItem>
-                  <ListGroupItem>{podcast.title}</ListGroupItem>
-                  <ListGroupItem>{podcast.url}</ListGroupItem>
-                  <ListGroupItem>{podcast.like_count}</ListGroupItem>
-                </ListGroup>
+                <button className="btn btn- btn-primary" onClick={function() {that.addToPlaylist(podcast)}} >Add to Playlist</button>
+                  <h3>{podcast.title}</h3>
+                  <p>{podcast.like_count}</p>
               </div>
             )
           })}
