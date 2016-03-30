@@ -191,6 +191,14 @@ nav ul li a:hover {
   writing-mode: lr-tb;
 }
 
+/*---------- LOGIN PAGE ----------*/
+
+.loginContainer {
+  width: 600px;
+  margin: 150px auto 0 auto;
+}
+
+
 /*---------- SPLASH PAGE ----------*/
 
 #homeBg {
