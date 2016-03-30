@@ -23,6 +23,8 @@ export default class Playlist extends React.Component {
   };
 
 
+
+
   renderPodcast = () => {
     return (
       <div className="contentContainer">
@@ -35,6 +37,10 @@ export default class Playlist extends React.Component {
       </div>
     )
   };
+
+  forceRerender = () => {
+    this.forceUpdate();
+  }
 
   renderList = () => {
     return (

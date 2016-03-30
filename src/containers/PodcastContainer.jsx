@@ -17,7 +17,26 @@ var PodcastContainer = React.createClass({
       playlistLikes: [],
     }
   },
-  componentDidMount: function(){
+
+  updatePodcast: function() {
+    var that = this;
+    Api.get(`likes?playlistid=${this.props.playlistId}`).then(function (returnedData) {
+     //console.log(returnedData);
+      var newLikeList = returnedData.map( function(like){
+        return like.id;
+      });
+      that.setState({
+          playlistLikes: newLikeList
+        })
+    }).catch(function() {
+        that.context.router.push('/login')
+      })
+  },
+
+
+
+
+  componentDidMount: function() {
     var that = this;
     this.setState({
       playlistTitle: this.props.playlistTitle
@@ -58,6 +77,8 @@ var PodcastContainer = React.createClass({
     return (
       <div>
         <Podcast
+          updatePodcast={this.updatePodcast}
+          rerenderParent={this.props.rerenderParent}
           podcastInfo={this.state.podcastInfo}
           playlistTitle={this.state.playlistTitle}
           playlistLikes={this.state.playlistLikes}

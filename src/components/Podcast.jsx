@@ -3,6 +3,10 @@ import Api from '../utils/api.js'
 import { ReactRouter, Link } from 'react-router';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
+
+
+
+
 var Podcast = React.createClass({
 
   contextTypes: {
@@ -27,12 +31,21 @@ var Podcast = React.createClass({
 
   addToPlaylist: function(podcast){
     window.addPlayerSrc(podcast.url, podcast.title);
+    if (localStorage.getItem('playlist')) {
+      var playlist = JSON.parse(localStorage.getItem('playlist'))
+      playlist.push(podcast);
+      return localStorage.setItem('playlist', JSON.stringify({playlist: playlist }));
+    }else {
+      return localStorage.setItem('playlist', JSON.stringify({playlist: playlist }));
+    }
   },
 
   like: function(id){
     var that = this;
     Api.post('likes', { podcastid: id })
       .then(function (response) {
+        that.props.updatePodcast();
+        console.log(response);
       }).catch(function(error) {
         console.log('request failed', error)
         that.context.router.push('/login')
@@ -47,6 +60,7 @@ var Podcast = React.createClass({
     var that = this;
     Api.delete(`likes?podcastid=${id}`)
       .then(function (){
+        that.props.updatePodcast();
       }).catch(function(error) {
         console.log('request failed', error)
         that.context.router.push('/login')

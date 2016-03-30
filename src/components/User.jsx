@@ -11,9 +11,6 @@ function User (props) {
       <div className='profileContent'>
         <h2>Hello {props.userInfo.name} </h2>
         <img src={props.userInfo.image} className="profPicHolder"/>
-        <ListGroup key={props.userInfo.id} >
-          <ListGroupItem>{props.userInfo.name}</ListGroupItem>
-        </ListGroup>
     </div>
     <div>
       {props.likesInfo.map(function(like) {
