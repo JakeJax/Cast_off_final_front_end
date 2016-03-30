@@ -79,6 +79,7 @@ var PodcastContainer = React.createClass({
     return (
       <div>
         <Podcast
+          backToPlaylists={this.props.backToPlaylists}
           setPlaylist={this.props.setPlaylist}
           updatePodcast={this.updatePodcast}
           rerenderParent={this.props.rerenderParent}
