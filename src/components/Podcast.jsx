@@ -5,7 +5,10 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
 
-
+function getStoredPlaylist() {
+  const listJson = localStorage.getItem('playlist');
+  return listJson ? JSON.parse(listJson) : [];
+}
 
 var Podcast = React.createClass({
 
@@ -15,7 +18,7 @@ var Podcast = React.createClass({
 
   getInitialState: function () {
     return {
-      updated: false
+      customPlaylist: getStoredPlaylist(),
     }
   },
 
@@ -31,14 +34,21 @@ var Podcast = React.createClass({
 
   addToPlaylist: function(podcast){
     window.addPlayerSrc(podcast.url, podcast.title);
-    if (localStorage.getItem('playlist')) {
-      var playlist = JSON.parse(localStorage.getItem('playlist'))
-      playlist.push(podcast);
-      return localStorage.setItem('playlist', JSON.stringify({playlist: playlist }));
-    }else {
-      return localStorage.setItem('playlist', JSON.stringify({playlist: playlist }));
-    }
+    const playlist = getStoredPlaylist().concat(podcast);
+    localStorage.setItem('playlist', JSON.stringify(playlist));
+    this.setState({ customPlaylist: playlist });
+    this.props.setPlaylist(playlist);
   },
+
+  removeFromPlaylist: function(podcast) {
+    const newPl = this.state.customPlaylist.slice();
+    newPl.splice(newPl.findIndex(pod => pod.id === podcast.id), 1);
+    localStorage.setItem('playlist', JSON.stringify(newPl));
+    this.setState({ customPlaylist: newPl });
+    this.props.setPlaylist(newPl);
+
+  },
+
 
   like: function(id){
     var that = this;
@@ -72,6 +82,12 @@ var Podcast = React.createClass({
     return this.props.playlistLikes.indexOf(id) > -1;
   },
 
+  inCusPlaylist: function(podcast) {
+    return !!this.state.customPlaylist.filter(function(pod) {
+      return pod.id === podcast.id;
+    }).length;
+  },
+
   likeButton: function(id) {
     var that = this;
     return(
@@ -99,7 +115,8 @@ var Podcast = React.createClass({
               <div className="indPlaylist">
                 <button className="btn btn- btn-primary" onClick={function() { that.play(podcast) }} >Play</button>
                 {that.userLiked(podcast.id) ? that.unlikeButton(podcast.id) : that.likeButton(podcast.id) }
-                <button className="btn btn- btn-primary" onClick={function() {that.addToPlaylist(podcast)}} >Add to Playlist</button>
+                { that.inCusPlaylist(podcast) ?  <button className="btn btn- btn-primary" onClick={function() {that.removeFromPlaylist(podcast)}} >Remove From Playlist</button> : 
+                <button className="btn btn- btn-primary" onClick={function() {that.addToPlaylist(podcast)}} >Add to Playlist</button>}
                   <h3>{podcast.title}</h3>
                   <p>{podcast.like_count}</p>
               </div>
@@ -120,7 +137,7 @@ var Podcast = React.createClass({
   render: function() {
     return(
       <div>
-        {this.state.updated ? this.renderPodcasts() : this.renderPodcasts()}
+        {this.state.customPlaylist ? this.renderPodcasts() : this.renderPodcasts()}
       </div>
     )
 

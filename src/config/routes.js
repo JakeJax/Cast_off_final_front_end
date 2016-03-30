@@ -19,7 +19,7 @@ var routes = (
     <Route path='/' component={Layout}>
       <IndexRoute component={Home} />
       <Route name='mood' path='mood' component={MoodContainer} />
-        <Route name='mood_page' path="/:moodId/:moodTitle" component={PlaylistContainer}/>
+      <Route name='mood_page' path="/:moodId/:moodTitle" component={PlaylistContainer}/>
       <Route path="playlist/:playlistId/:playlistTitle" component={PodcastContainer} />
       <Route path='login' component={SessionContainer} />
       <Route path='user' component={UserContainer} />

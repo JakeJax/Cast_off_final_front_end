@@ -29,7 +29,8 @@ export default class Playlist extends React.Component {
     return (
       <div className="contentContainer">
         <button className="btn btn-sm btn-primary" onClick={this.backToPlaylists} > All Playlists </button>
-        <PodcastContainer 
+        <PodcastContainer
+          setPlaylist={this.props.setPlaylist}       
           playlistTitle={this.state.podcast.title} 
           playlistId={this.state.podcast.id} 
           playlistImg={this.state.podcast.image} />
