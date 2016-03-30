@@ -14,7 +14,7 @@ function Home () {
           Have you ever been CRAVING a podcast, trying to figure out which one to listen to, then finally select one only to realize that it is not what you want at all??
         </p>
         <p>
-          WE'RE HERE TO HELP! Cast Off allows you to select a range of podcasts for you based on the mood you're in at the time.
+          WE'RE HERE TO HELP! Cast Off allows you to select a range of podcasts based on what you're in the mood for at the time.
         </p>
         <Link to='/mood'>
           <button type='button' className='btn btn-lg btn-primary'>Get Started</button>

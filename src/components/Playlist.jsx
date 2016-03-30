@@ -28,7 +28,7 @@ export default class Playlist extends React.Component {
   renderPodcast = () => {
     return (
       <div className="contentContainer">
-        <button className="btn-primary" onClick={this.backToPlaylists} > All Playlists </button>
+        <button className="btn btn-sm btn-primary" onClick={this.backToPlaylists} > All Playlists </button>
         <PodcastContainer 
           playlistTitle={this.state.podcast.title} 
           playlistId={this.state.podcast.id} 

@@ -18,7 +18,7 @@ var Session = React.createClass({
 
   render: function() {
     return (
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
+      <div className="loginContainer">
         <h1>LOGIN</h1>
         <div className="col-sm-12">
           <form onSubmit={this.handleSubmit}>
@@ -40,13 +40,15 @@ var Session = React.createClass({
             </div>
             <div className="form-group col-sm-4 col-sm-offset-4">
               <button
-                className="btn btn-block btn-success"
+                className="btn btn-block btn-primary"
                 type="submit">
                   Login
               </button>
             </div>
           </form>
         </div>
+
+          <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
       </div>
     )
   }
