@@ -112,7 +112,7 @@ var Podcast = React.createClass({
         <div className='indPlaylistHolder'>
         <img src={this.props.image} />
         <button className="btn btn-sm btn-primary" onClick={this.props.backToPlaylists} > All Playlists </button>
-        <button className="btn btn- btn-primary playAll" onClick={function() {that.playAll(that.props.playlistUrls)}} >Play All</button>
+        <button className="btn btn-sm btn-primary playAll" onClick={function() {that.playAll(that.props.playlistUrls)}} >Play All</button>
           {this.props.podcastInfo.map(function(podcast) {
             return (
               <div className="indPlaylist">

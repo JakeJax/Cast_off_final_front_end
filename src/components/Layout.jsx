@@ -60,7 +60,7 @@ class Layout extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="main">
         
         <header className="navbar navbar-light navbar-static-top bd-navbar" roll="banner">
           <div className="clearfix">           
