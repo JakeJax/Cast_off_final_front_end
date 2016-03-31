@@ -23,7 +23,6 @@ var Podcast = React.createClass({
   },
 
   play: function(podcast){
-    this.addToPlaylist(podcast);
     window.setPlayerSrc(podcast.url, podcast.title);
   },
 
@@ -33,21 +32,23 @@ var Podcast = React.createClass({
   },
 
   addToPlaylist: function(podcast){
-    window.addPlayerSrc(podcast.url, podcast.title);
+    {/*window.addPlayerSrc(podcast.url, podcast.title);*/}
     const playlist = getStoredPlaylist().concat(podcast);
+    window.updatePlaylist(playlist);
     localStorage.setItem('playlist', JSON.stringify(playlist));
     this.setState({ customPlaylist: playlist });
     this.props.setPlaylist(playlist);
-    window.updatePlaylist(playlist);
+    
   },
+
 
   removeFromPlaylist: function(podcast) {
     const newPl = this.state.customPlaylist.slice();
     newPl.splice(newPl.findIndex(pod => pod.id === podcast.id), 1);
     localStorage.setItem('playlist', JSON.stringify(newPl));
+    window.updatePlaylist(newPl);
     this.setState({ customPlaylist: newPl });
     this.props.setPlaylist(newPl);
-    window.updatePlaylist(newPl);
 
   },
 
@@ -115,7 +116,7 @@ var Podcast = React.createClass({
         <button className="btn btn-sm btn-primary playAll" onClick={function() {that.playAll(that.props.playlistUrls)}} >Play All</button>
           {this.props.podcastInfo.map(function(podcast) {
             return (
-              <div className="indPlaylist">
+              <div key={podcast.id} className="indPlaylist">
                 <button className="btn btn- btn-primary" onClick={function() { that.play(podcast) }} >Play</button>
                 {that.userLiked(podcast.id) ? that.unlikeButton(podcast.id) : that.likeButton(podcast.id) }
                 { that.inCusPlaylist(podcast) ?  <button className="btn btn- btn-primary" onClick={function() {that.removeFromPlaylist(podcast)}} >Remove From Playlist</button> : 

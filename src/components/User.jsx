@@ -5,37 +5,48 @@ var Link = ReactRouter.Link;
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 
-function User (props) {
-  return (
-    <div className="contentContainer">
-      <div className="profileContainer">
-        <div className='profileContent'>
-          <h2>Hello {props.userInfo.name} </h2>
-          <img src={props.userInfo.image} className="profPicHolder"/>
-          <h3>Favourites</h3>
-        </div>
-      <div>
-        {props.likesInfo.map(function(like) {
+var User = React.createClass({
+  play: function(podcast){
+      window.setPlayerSrc(podcast.url, podcast.title);
+  },
+
+  render: function() {
+    var that = this;
+    return (
+      <div className="contentContainer">
+        <div className="profileContainer">
+          <div className='profileContent'>
+            <h2>Hello {this.props.userInfo.name} </h2>
+            <img src={this.props.userInfo.image} className="profPicHolder"/>
+            <h3>Favourites</h3>
+          </div>
+        <div>
+          {this.props.likesInfo.map(function(like) {
+            debugger
+            
             return (
-              <div className='likePicContainer'>
-                
+              <div key={like.id} className='likePicContainer'>
                 <div className="like">
                   <div key={like.id} >
                     <img src={like.image}/>
                     
                   </div>  
                   <div className="title">
-                      <p>{like.title}</p>
-                    </div>
+                    <p>{like.title}</p>
+                  </div>
                 </div>
-                
+                <button className="btn btn- btn-primary" onClick={function() { that.play(like) }} >Play</button>
+
               </div>
             )
-          })}
+            })}
+        </div>
+        <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
       </div>
-      <img src="../src/public/images/stars.jpg" alt="" id="homeBg" />
     </div>
-  </div>)
-}
+    )
+  }
+  
+})
 
 module.exports = User;

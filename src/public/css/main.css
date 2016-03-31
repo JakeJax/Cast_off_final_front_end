@@ -491,13 +491,13 @@ nav ul li a:hover {
 
 #musicPlayer .load-progress {
   width:0px;
-  background-color:#fff;
+  background-color:#0062FF;
   height:3px;
 }
 
 #musicPlayer .play-progress {
   width:0px;
-  background-color:#fff;
+  background-color:#0062FF;
   height:3px;
 }
 

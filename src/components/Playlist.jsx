@@ -49,8 +49,8 @@ export default class Playlist extends React.Component {
         <h1>{this.props.moodTitle}</h1>
           {this.props.playlistInfo.map((playlist) => {
             return (
-              <div className='playlistContainer'>
-                <div key={playlist.id} onClick={() => this.displayPodcasts(playlist)}>
+              <div key={playlist.id} className='playlistContainer'>
+                <div onClick={() => this.displayPodcasts(playlist)}>
                   <a>
                   <img src={playlist.image}/>
                   <h2>{playlist.title}</h2>
