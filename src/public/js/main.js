@@ -1,13 +1,12 @@
 
-
-
-
-
-
-
 $(document).ready(function() {
 
-  var playlist = []
+  function getPlaylist() {
+    const listJson = localStorage.getItem('playlist');
+    return listJson ? JSON.parse(listJson) : [];
+  }
+
+  var playlist = getPlaylist()
 
   var aud = $('#musicPlayer .aud').get(0);
   aud.pos = -1;

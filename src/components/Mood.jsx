@@ -15,8 +15,8 @@ var Mood = React.createClass({
         <div className='moodPicContainer'>
         {this.props.moodInfo.map(function(mood) {
           return (
-            <div className="mood">
-              <div key={mood.id} >
+            <div key={mood.id} className="mood">
+              <div>
                 <Link to={`/${mood.id}/${mood.title}`} params={{ moodTitle: mood.title }}>
                   <img src={mood.image}/>
                    <div className="name">

@@ -7,7 +7,15 @@ var Api = require('../utils/api.js');
 
 
 var CustomPlaylist = React.createClass({
-
+  
+  getInitialState: function () {
+    return {
+      podcastInfo: [],
+      playlistTitle: '' ,
+      playlistUrls: [],
+      playlistLikes: [],
+    }
+  },
 
 
   renderCusPlay: function() {
@@ -17,7 +25,7 @@ var CustomPlaylist = React.createClass({
           <ul>
             {this.props.cusPlaylist.map(function(pod) { 
               return (
-                <li>{pod.title}</li>
+                <li key={pod.id}>{pod.title}</li>
               )
             })}
           </ul>           
