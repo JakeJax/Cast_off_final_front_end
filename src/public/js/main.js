@@ -46,7 +46,6 @@ $(document).ready(function() {
 
   $('#musicPlayer .play').bind('click', function(e) {
     e.preventDefault();
-    playlist = getPlaylist();
     if (aud.pos < 0) {
       $('#musicPlayer .next').trigger('click');
     } else {
