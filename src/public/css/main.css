@@ -410,6 +410,11 @@ nav ul li a:hover {
 
 /*--------- PLAYLIST PAGE  ---------*/
 
+#clearBtn {
+  position: absolute;
+  z-index: 1000000000000000;
+}
+
 .playlistContainer {
   width: 700px;
   margin: 0 auto 50px auto;
@@ -482,6 +487,9 @@ nav ul li a:hover {
   -moz-box-shadow: 0px 4px 17px 5px rgba(0,0,0,0.75);
   box-shadow: 0px 4px 17px 5px rgba(0,0,0,0.75);
 }
+
+
+
 
 #musicPlayer .loader {
   border:1px solid #fff;

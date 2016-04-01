@@ -22,6 +22,10 @@ var UserContainer = React.createClass({
         that.setState({
           userInfo: returnedData
         })
+      }).catch(function(err) {
+        console.error(err);
+        that.context.router.push('/login')
+      })
     Api.get('likes')
       .then(function (returnedData) {
         console.log(returnedData)
@@ -37,7 +41,9 @@ var UserContainer = React.createClass({
         that.setState({
           likesInfo: newLikesInfo
         })
-      })
+      }).catch(function(err) {
+        console.error(err);
+        that.context.router.push('/login')
 
 
 

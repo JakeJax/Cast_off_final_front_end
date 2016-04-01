@@ -21,9 +21,7 @@ var User = React.createClass({
             <h3>Favourites</h3>
           </div>
         <div>
-          {this.props.likesInfo.map(function(like) {
-            debugger
-            
+          {this.props.likesInfo.map(function(like) {            
             return (
               <div key={like.id} className='likePicContainer'>
                 <div className="like">
@@ -50,3 +48,4 @@ var User = React.createClass({
 })
 
 module.exports = User;
+

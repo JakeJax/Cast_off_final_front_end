@@ -7,20 +7,19 @@ import styles from '../styles';
 import ReactDOM from 'react-dom';
 
 
-
-export default class Player extends React.Component {
+var Player = React.createClass({
 
   componentDidMount() {
     $(ReactDOM.findDOMNode(this.refs.musicPlayer));
     var playlist = this.props.playlistUrls;
-  }
+  },
 
 
 
 
 
 
-  render() {
+  render: function() {
     return (
       <div>
 
@@ -50,4 +49,8 @@ export default class Player extends React.Component {
   }
 
 
-}
+})
+
+module.exports = Player;
+
+

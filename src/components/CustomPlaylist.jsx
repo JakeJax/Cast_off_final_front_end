@@ -17,12 +17,20 @@ var CustomPlaylist = React.createClass({
     }
   },
 
+  clearPlaylist: function(){
+    this.props.setPlaylist([]);
+    localStorage.removeItem('playlist');
+    window.updatePlaylist([]);
+  },
+  
 
   renderCusPlay: function() {
+    var that = this;
     return (
       <div id="sliderContainer">
         <div id="hidden">
           <ul>
+            <button id="clearBtn" className="btn btn-sm btn-primary" onClick={function() { that.clearPlaylist() }} >Clear</button>
             {this.props.cusPlaylist.map(function(pod) { 
               return (
                 <li key={pod.id}>{pod.title}</li>
