@@ -65,7 +65,6 @@ var SessionContainer = React.createClass({
       .then(function (response) {
         setLocalStorage(response.token);
         var user = JSON.parse(localStorage.getItem('user'))
-        console.log(user.token);
         that.props.setToken(user.token);
         that.context.router.push('/mood')
       })

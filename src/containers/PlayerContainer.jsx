@@ -87,8 +87,6 @@ export default class PlayerContainer extends React.Component {
 
               var offset = $div.offset();
               var x = e.clientX - offset.left;
-              // console.log(x, $loadBar.width(), aud.duration)
-              // console.log(x/$loadBar.width()*aud.duration)
               aud.currentTime = x/$loadBar.width()*aud.duration
               aud.play();
 

@@ -30,7 +30,7 @@ var PlaylistContainer = React.createClass({
           playlistInfo: newPlayInfo,
         })
       }).catch(function(error) {
-        console.log('here', error)
+        console.log('error', error)
         that.context.router.push('/login')
       })
   },

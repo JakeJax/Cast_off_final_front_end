@@ -10,6 +10,7 @@ $(document).ready(function() {
 
   window.clearPlaylist = function(){
     $('#musicPlayer .info').html("CastOff");
+    playlist = getPlaylist();
   }
 
 
@@ -45,6 +46,7 @@ $(document).ready(function() {
 
   $('#musicPlayer .play').bind('click', function(e) {
     e.preventDefault();
+    playlist = getPlaylist();
     if (aud.pos < 0) {
       $('#musicPlayer .next').trigger('click');
     } else {
@@ -109,8 +111,6 @@ $(document).ready(function() {
 
     var offset = $div.offset();
     var x = e.clientX - offset.left;
-    // console.log(x, $loadBar.width(), aud.duration)
-    // console.log(x/$loadBar.width()*aud.duration)
     aud.currentTime = x/$loadBar.width()*aud.duration
     aud.play();
 

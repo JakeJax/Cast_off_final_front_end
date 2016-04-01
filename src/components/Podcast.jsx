@@ -50,7 +50,6 @@ var Podcast = React.createClass({
     Api.post('likes', { podcastid: id })
       .then(function (response) {
         that.props.updatePodcast();
-        console.log(response);
       }).catch(function(error) {
         console.log('request failed', error)
         that.context.router.push('/login')

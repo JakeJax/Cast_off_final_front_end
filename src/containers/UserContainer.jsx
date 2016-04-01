@@ -18,7 +18,6 @@ var UserContainer = React.createClass({
     var that = this;  
     Api.get('user')
       .then(function (returnedData) {
-        console.log(returnedData)
         that.setState({
           userInfo: returnedData
         })
@@ -28,10 +27,8 @@ var UserContainer = React.createClass({
       })
     Api.get('likes')
       .then(function (returnedData) {
-        console.log(returnedData)
         var newLikesInfo = [];
         var likesLength = (returnedData.likes.length)
-        console.log(likesLength)
         for (var i = 0; i < likesLength; i++) {
           newLikesInfo.push(returnedData.likes[i]);
         };

@@ -21,7 +21,6 @@ var PodcastContainer = React.createClass({
   updatePodcast: function() {
     var that = this;
     Api.get(`likes?playlistid=${this.props.playlistId}`).then(function (returnedData) {
-     //console.log(returnedData);
       var newLikeList = returnedData.map( function(like){
         return like.id;
       });
@@ -43,7 +42,6 @@ var PodcastContainer = React.createClass({
     });
     Api.get(`podcasts?playlistid=${this.props.playlistId}`)
       .then(function (returnedData) {
-        console.log(returnedData);
         var newPodInfo = [];
         var newPlaylistUrls = [];
         var playlength = returnedData.length
@@ -62,7 +60,6 @@ var PodcastContainer = React.createClass({
         console.error(err);
       })
     Api.get(`likes?playlistid=${this.props.playlistId}`).then(function (returnedData) {
-      console.log(returnedData);
       var newLikeList = returnedData.map( function(like){
         return like.id;
       });
@@ -74,7 +71,6 @@ var PodcastContainer = React.createClass({
       })
   },
   render: function () {
-    console.log("@PodcastContainer", this.props);
 
     return (
       <div>

@@ -19,7 +19,6 @@ var MoodContainer = React.createClass({
       .then(function (returnedData) {
         var newMoodInfo = [];
         var moodLength = (returnedData.length)
-        console.log(moodLength)
         for (var i = 0; i < moodLength; i++) {
            newMoodInfo.push(returnedData[i]);
         };
