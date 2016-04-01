@@ -21,6 +21,8 @@ var CustomPlaylist = React.createClass({
     this.props.setPlaylist([]);
     localStorage.removeItem('playlist');
     window.updatePlaylist([]);
+    this.props.setPlayerPlaylist([]);
+    window.clearPlaylist();
   },
   
 

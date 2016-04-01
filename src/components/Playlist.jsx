@@ -30,7 +30,8 @@ export default class Playlist extends React.Component {
       <div className="contentContainer">
         <PodcastContainer
           backToPlaylists={this.backToPlaylists}
-          setPlaylist={this.props.setPlaylist}       
+          setPlaylist={this.props.setPlaylist}
+          cusPlaylist={this.props.cusPlaylist}       
           playlistTitle={this.state.podcast.title} 
           playlistId={this.state.podcast.id} 
           playlistImg={this.state.podcast.image} />

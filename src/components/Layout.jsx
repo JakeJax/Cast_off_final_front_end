@@ -22,6 +22,7 @@ class Layout extends React.Component {
     this.state = {
       token: localStorage.getItem('user'),
       cusPlaylist: this.getPlaylist(),
+      playerPlaylist: []
     };
   };
 
@@ -35,7 +36,15 @@ class Layout extends React.Component {
     this.setState({
       cusPlaylist: playlist
     })
-  }
+  };
+
+  setPlayerPlaylist = (playlist) => {
+    this.setState({
+      playerPlaylist: playlist
+    })
+  };
+
+
 
 
 
@@ -76,7 +85,8 @@ class Layout extends React.Component {
               </div>
             </a>
             <CustomPlaylist cusPlaylist={this.state.cusPlaylist} 
-              setPlaylist={this.setPlaylist} />
+              setPlaylist={this.setPlaylist} 
+              setPlayerPlaylist={this.setPlayerPlaylist} />
             <nav>
               <Header token={this.state.token}
                 setToken={this.setToken}
@@ -88,10 +98,10 @@ class Layout extends React.Component {
         </div>
         </header>
           {React.Children.map(this.props.children, (child) => {
-            return React.cloneElement(child, { setToken: this.setToken, setPlaylist: this.setPlaylist });
+            return React.cloneElement(child, { setToken: this.setToken, setPlaylist: this.setPlaylist, cusPlaylist: this.state.cusPlaylist });
           })}
         <br />
-        <Player />  
+        <Player playerPlaylist={this.state.playerPlaylist} />  
       </div>
     );
   }

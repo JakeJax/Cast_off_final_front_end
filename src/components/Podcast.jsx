@@ -16,11 +16,6 @@ var Podcast = React.createClass({
     router: React.PropTypes.object.isRequired
   },
 
-  getInitialState: function () {
-    return {
-      customPlaylist: getStoredPlaylist(),
-    }
-  },
 
   play: function(podcast){
     window.setPlayerSrc(podcast.url, podcast.title);
@@ -32,22 +27,19 @@ var Podcast = React.createClass({
   },
 
   addToPlaylist: function(podcast){
-    {/*window.addPlayerSrc(podcast.url, podcast.title);*/}
     const playlist = getStoredPlaylist().concat(podcast);
     window.updatePlaylist(playlist);
     localStorage.setItem('playlist', JSON.stringify(playlist));
-    this.setState({ customPlaylist: playlist });
     this.props.setPlaylist(playlist);
     
   },
 
 
   removeFromPlaylist: function(podcast) {
-    const newPl = this.state.customPlaylist.slice();
+    const newPl = this.props.cusPlaylist.slice();
     newPl.splice(newPl.findIndex(pod => pod.id === podcast.id), 1);
     localStorage.setItem('playlist', JSON.stringify(newPl));
     window.updatePlaylist(newPl);
-    this.setState({ customPlaylist: newPl });
     this.props.setPlaylist(newPl);
 
   },
@@ -86,7 +78,7 @@ var Podcast = React.createClass({
   },
 
   inCusPlaylist: function(podcast) {
-    return !!this.state.customPlaylist.filter(function(pod) {
+    return !!this.props.cusPlaylist.filter(function(pod) {
       return pod.id === podcast.id;
     }).length;
   },
@@ -141,7 +133,7 @@ var Podcast = React.createClass({
   render: function() {
     return(
       <div>
-        {this.state.customPlaylist ? this.renderPodcasts() : this.renderPodcasts()}
+        {this.props.cusPlaylist ? this.renderPodcasts() : this.renderPodcasts()}
       </div>
     )
 

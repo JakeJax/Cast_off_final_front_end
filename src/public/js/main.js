@@ -6,7 +6,12 @@ $(document).ready(function() {
     return listJson ? JSON.parse(listJson) : [];
   }
 
-  var playlist = getPlaylist()
+  var playlist = getPlaylist();
+
+  window.clearPlaylist = function(){
+    $('#musicPlayer .info').html("CastOff");
+  }
+
 
   var aud = $('#musicPlayer .aud').get(0);
   aud.pos = -1;
