@@ -421,7 +421,7 @@ nav ul li a:hover {
 /*--------- PLAYLIST PAGE  ---------*/
 
 #clearBtn {
-  position: absolute;
+  position: relative;
   z-index: 1000000000000000;
 }
 

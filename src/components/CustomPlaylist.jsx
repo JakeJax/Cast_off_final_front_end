@@ -32,12 +32,12 @@ var CustomPlaylist = React.createClass({
       <div id="sliderContainer">
         <div id="hidden">
           <ul>
-            <button id="clearBtn" className="btn btn-sm btn-primary" onClick={function() { that.clearPlaylist() }} >Clear</button>
             {this.props.cusPlaylist.map(function(pod) { 
               return (
                 <li key={pod.id}>{pod.title}</li>
               )
             })}
+            <button id="clearBtn" className="btn btn-sm btn-primary" onClick={function() { that.clearPlaylist() }} >Clear</button>
           </ul>           
         </div>
         <div id="shown">
