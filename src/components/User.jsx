@@ -21,19 +21,19 @@ var User = React.createClass({
             <h3>Favourites</h3>
           </div>
         <div>
-          {this.props.likesInfo.map(function(like) {            
+          {this.props.likesInfo.map(function(like) {
             return (
               <div key={like.id} className='likePicContainer'>
                 <div className="like">
                   <div key={like.id} >
                     <img src={like.image}/>
-                    
                   </div>  
                   <div className="title">
                     <p>{like.title}</p>
                   </div>
+                  <button id="likePlay" className="btn btn- btn-primary" onClick={function() { that.play(like) }} >Play</button>
+
                 </div>
-                <button className="btn btn- btn-primary" onClick={function() { that.play(like) }} >Play</button>
 
               </div>
             )

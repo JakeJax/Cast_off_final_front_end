@@ -304,6 +304,7 @@ nav ul li a:hover {
 .likePicContainer{
   width: 775px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .likePicContainer .like {
@@ -311,9 +312,9 @@ nav ul li a:hover {
   /*border: 1px solid gray;*/
   margin: 20px;
   width: 150px;
-  height: 180px;
+  height: 220px;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.2); 
+  background: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 5px 5px 40px 5px #0D0D0D;
   box-shadow: 0px 0px 49px -1px rgba(0,0,0,0.8);
   -webkit-transition: margin .5s ease-in-out;
@@ -341,6 +342,7 @@ nav ul li a:hover {
   position: relative;
   overflow: auto;
   padding-top: 7px;
+  height: 50px;
 }
 
 .likePicContainer .like a {
@@ -350,6 +352,14 @@ nav ul li a:hover {
 
 .likePicContainer .like a:hover {
   color: #0062FF;
+}
+
+#likePlay {
+  position: relative;
+  z-index: 1000000000000000;
+  margin: 5px auto;
+  text-align: center;
+  display: block;
 }
 
 
